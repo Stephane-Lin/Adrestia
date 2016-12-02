@@ -32,11 +32,16 @@ public class boiler_puzzle : MonoBehaviour {
 
 		if (boiler_fire_time > 0 && boiler_water_time > 0) 
 		{
+
+
 			Destroy(GameObject.Find("boiler_fire"));
 			Destroy(GameObject.Find("boiler_water"));
 			Destroy (GameObject.Find("blocker_1"));
 			Destroy (GameObject.Find("blocker_2"));
 			Destroy (GameObject.Find("blocker_3"));
+			GameObject.Find("water_sparkle").GetComponent<ParticleSystem>().enableEmission = false;
+			GameObject.Find("fire_sparkle").GetComponent<ParticleSystem>().enableEmission = false;
+
 
 		}
 
