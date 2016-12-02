@@ -29,16 +29,8 @@ public class WaterParticle : MonoBehaviour
 			obj.GetComponent<BridgeController> ().Grow();
 		}
 
-        if(obj.name != "Mage" && obj.tag != "Planet")
-        {
-            gameObject.GetComponent<ParticleSystem>().Clear();
-        }
 
-		if(obj.tag == "WeakToWater")
-		{
-			Instantiate(myDestructionSound);
-			Destroy(obj);
-		}
+
 
 		if(obj.tag == "water_interaction")
 		{
@@ -47,5 +39,9 @@ public class WaterParticle : MonoBehaviour
 
 		}
 
+        //if(obj.name != "Mage" && obj.tag != "Planet")
+        //{
+        //    gameObject.GetComponent<ParticleSystem>().Clear();
+        //}
     }
 }

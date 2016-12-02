@@ -28,9 +28,9 @@ public class LightningParticle : MonoBehaviour
 			obj.GetComponent<BridgeController> ().Grow();
 		}
 
-        if(obj.name != "Mage" && obj.tag != "Planet")
-        {
-            gameObject.GetComponent<ParticleSystem>().Clear();
-        }
+        //if(obj.name != "Mage" && obj.tag != "Planet")
+        //{
+        //    gameObject.GetComponent<ParticleSystem>().Clear();
+       // }
     }
 }

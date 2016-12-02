@@ -28,10 +28,7 @@ public class FireParticle : MonoBehaviour
 			obj.GetComponent<BridgeController> ().Grow();
 		}
        
-        if(obj.name != "Mage" && obj.tag != "Planet")
-        {
-            gameObject.GetComponent<ParticleSystem>().Clear();
-        }
+
 
 		if(obj.tag == "fire_interaction")
 		{
@@ -39,5 +36,10 @@ public class FireParticle : MonoBehaviour
 			boiler_puzzle.boiler_fire_time = 30.00f;
 
 		}
+
+        //if(obj.name != "Mage" && obj.tag != "Planet")
+        //{
+        //   gameObject.GetComponent<ParticleSystem>().Clear();
+        //}
     }
 }
