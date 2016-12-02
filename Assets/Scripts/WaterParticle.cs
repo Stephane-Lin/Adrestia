@@ -39,9 +39,9 @@ public class WaterParticle : MonoBehaviour
 
 		}
 
-        //if(obj.name != "Mage" && obj.tag != "Planet")
-        //{
-        //    gameObject.GetComponent<ParticleSystem>().Clear();
-        //}
+        if(obj.name != "Mage" && obj.tag != "Planet")
+        {
+            gameObject.GetComponent<ParticleSystem>().Clear();
+        }
     }
 }
