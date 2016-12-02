@@ -4,8 +4,8 @@ using UnityEngine.SceneManagement;
 
 public class BossControl : MonoBehaviour {
 
-	public bool isHit = false;
-	public bool isDead = false;
+	public bool isHit;
+	public bool isDead;
 	public BlackHoleController blackHole01;
 	public BlackHoleController blackHole02;
 	public BlackHoleController blackHole03;
@@ -25,16 +25,27 @@ public class BossControl : MonoBehaviour {
 	int health;
 	bool attack;
 
-	float time = 2f;
-	float returnToMenuTime = 1f;
-	float attackDelay = 1.5f;
+	float time;
+	float returnToMenuTime;
+	float attackDelay;
 	Vector3 direction, target;
+    bool soundNotPlayed;
 
     public GameObject storyText;
+    public AudioSource openMenuSound;
+    AudioSource myOpenMenuSound;
 
 	// Use this for initialization
-	void Start () {
-		health = 6;
+	void Start () 
+    {
+        isHit = false;
+        isDead = false;
+        time = 2f;
+        returnToMenuTime = 0.05f;
+        attackDelay = 1.5f;
+        soundNotPlayed = true;
+        myOpenMenuSound = openMenuSound.GetComponent<AudioSource>();
+        health = 6;
 	}
 
 	// Update is called once per frame
@@ -75,6 +86,11 @@ public class BossControl : MonoBehaviour {
 				Cursor.visible = true;
 				Cursor.lockState = CursorLockMode.None;
 				storyText.SetActive(true);
+                if(soundNotPlayed == true)
+                {
+                    soundNotPlayed = false;
+                    Instantiate(myOpenMenuSound);
+                }
 			} else
 			{
 				loadingScreen.SetActive (true);
