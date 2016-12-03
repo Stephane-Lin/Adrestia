@@ -76,6 +76,7 @@ public class boilerPuzzleController : MonoBehaviour
         {
             if(alreadyReset == false)
             {
+                Destroy(GameObject.Find("timer(Clone)"));
                 alreadyReset = true;
                 Instantiate(incorrectSound);
                 redAlreadyHit = false;
