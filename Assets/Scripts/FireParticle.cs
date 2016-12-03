@@ -4,11 +4,15 @@ using System.Collections;
 public class FireParticle : MonoBehaviour
 {
     public AudioSource destructionSound;
+	public AudioSource puzzlestartsound;
+
     AudioSource myDestructionSound;
+	AudioSource puzzlestartSound1;
 
     void Start()
     {
         myDestructionSound = destructionSound.GetComponent<AudioSource>();
+		puzzlestartSound1 = puzzlestartsound.GetComponent<AudioSource>();
     }
 
     void OnParticleCollision(GameObject obj)
@@ -35,7 +39,7 @@ public class FireParticle : MonoBehaviour
 
 		if(obj.tag == "fire_interaction")
 		{
-			Instantiate(myDestructionSound);
+			Instantiate (puzzlestartSound1);
 			boiler_puzzle.boiler_fire_time = 30.00f;
 
 		}

@@ -4,12 +4,18 @@ using System.Collections;
 public class WaterParticle : MonoBehaviour
 {
     public AudioSource destructionSound;
+	public AudioSource boilerpuzzlestartsound;
+
     AudioSource myDestructionSound;
+	AudioSource puzzlestartSound;
+
 
 
     void Start()
     {
         myDestructionSound = destructionSound.GetComponent<AudioSource>();
+		puzzlestartSound = boilerpuzzlestartsound.GetComponent<AudioSource>();
+	
     }
 
     void OnParticleCollision(GameObject obj)
@@ -42,7 +48,8 @@ public class WaterParticle : MonoBehaviour
 
 		if(obj.tag == "water_interaction")
 		{
-			Instantiate(myDestructionSound);
+			
+			Instantiate (puzzlestartSound);
 			boiler_puzzle.boiler_water_time =30.00f;
 
 		}
