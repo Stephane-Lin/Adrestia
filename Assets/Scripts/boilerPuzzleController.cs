@@ -60,6 +60,7 @@ public class boilerPuzzleController : MonoBehaviour
     {
         if(Time.time < timer && redActive == true && blueActive == true && complete == false)
         {
+            Destroy(GameObject.Find("timer(Clone)"));
             complete = true;
             Instantiate(myPuzzleCompleteSound);
             Destroy(GameObject.Find("boiler_fire"));
