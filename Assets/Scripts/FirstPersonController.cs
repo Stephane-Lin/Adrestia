@@ -109,7 +109,7 @@ public class FirstPersonController : MonoBehaviour {
         willLevitateAgain = true;
         initCamAngle = -cameraTransform.localEulerAngles.x;
         mouseYEnabled = false;
-		thunder_respawn = new Vector3(10f, 403f, -23f);
+		thunder_respawn = new Vector3(10f, 401.71f, -23f);
         thunder_rotation = new Quaternion(0,0,0,0);
 
     }
