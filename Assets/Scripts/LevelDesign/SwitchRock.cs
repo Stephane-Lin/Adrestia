@@ -8,9 +8,13 @@ public class SwitchRock : MonoBehaviour {
 	AudioSource myDestructionSound;
 	bool rockIsGone;
 
+    public AudioSource puzzleStartSound;
+    AudioSource myPuzzleStartSound;
+
 	void Start () {
 	
-		rockIsGone = false;
+        myPuzzleStartSound = puzzleStartSound.GetComponent<AudioSource>();
+        rockIsGone = false;
 		myDestructionSound = destructionSound.GetComponent<AudioSource>();
 	}
 
@@ -19,6 +23,7 @@ public class SwitchRock : MonoBehaviour {
 		if (col.gameObject.tag == "Player") {
 			if (!rockIsGone) {
 				Instantiate (myDestructionSound);
+                Instantiate(myPuzzleStartSound);
 				Destroy (rock);
 				rockIsGone = true;
 			}

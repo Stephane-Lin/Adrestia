@@ -72,7 +72,7 @@ public class boilerPuzzleController : MonoBehaviour
             Destroy (GameObject.Find("fire_sparkle"));
         }
 
-        if(Time.time > timer)
+        if(Time.time > timer && complete == false)
         {
             if(alreadyReset == false)
             {

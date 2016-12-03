@@ -362,7 +362,7 @@ public class FirstPersonController : MonoBehaviour {
         }
 
 
-		if (col.gameObject.tag == "SpearTrapThunder" || col.gameObject.tag == "NeedleTrapThunder" || col.gameObject.tag == "SawBladeTrapThunder" || col.gameObject.tag == "GreatBladeTrapThunder" || col.gameObject.name == "ThunderPlanet" ||col.gameObject.name == "SpikeTrapThunder" ) {
+		if (col.gameObject.tag == "SpearTrapThunder" || col.gameObject.tag == "NeedleTrapThunder" || col.gameObject.tag == "SawBladeTrapThunder" || col.gameObject.tag == "GreatBladeTrapThunder" || col.gameObject.name == "ThunderPlanet" ||col.gameObject.tag == "SpikeTrapThunder" ) {
 			Instantiate (myDeathSound);
 			//transform.position = new Vector3(10f, 403f, -23f);
 			transform.position = thunder_respawn;
