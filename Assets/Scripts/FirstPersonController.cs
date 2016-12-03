@@ -86,6 +86,7 @@ public class FirstPersonController : MonoBehaviour {
 
 	//thunder respawn points
 	Vector3 thunder_respawn;
+    Quaternion thunder_rotation;
 
     void Start()
     {
@@ -109,6 +110,7 @@ public class FirstPersonController : MonoBehaviour {
         initCamAngle = -cameraTransform.localEulerAngles.x;
         mouseYEnabled = false;
 		thunder_respawn = new Vector3(10f, 403f, -23f);
+        thunder_rotation = new Quaternion(0,0,0,0);
 
     }
 
@@ -361,6 +363,7 @@ public class FirstPersonController : MonoBehaviour {
 			Instantiate (myDeathSound);
 			//transform.position = new Vector3(10f, 403f, -23f);
 			transform.position = thunder_respawn;
+            transform.rotation = thunder_rotation;
 		}
 
 		if (col.gameObject.tag == "orb" ) {

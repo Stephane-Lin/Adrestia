@@ -4,18 +4,12 @@ using System.Collections;
 public class WaterParticle : MonoBehaviour
 {
     public AudioSource destructionSound;
-	public AudioSource boilerpuzzlestartsound;
 
     AudioSource myDestructionSound;
-	AudioSource puzzlestartSound;
-
-
 
     void Start()
     {
-        myDestructionSound = destructionSound.GetComponent<AudioSource>();
-		puzzlestartSound = boilerpuzzlestartsound.GetComponent<AudioSource>();
-	
+        myDestructionSound = destructionSound.GetComponent<AudioSource>();	
     }
 
     void OnParticleCollision(GameObject obj)
@@ -26,24 +20,20 @@ public class WaterParticle : MonoBehaviour
             Destroy(obj);
         }
 
-		if (obj.tag == "Boss") {
+		if (obj.tag == "Boss") 
+        {
 			obj.GetComponent<BossControl> ().Hit ();
 			print ("Hit boss");
 		}
 
-		if (obj.tag == "GrowOnWater") {
+		if (obj.tag == "GrowOnWater") 
+        {
 			obj.GetComponent<BridgeController> ().Grow();
 		}
 
-
-
-
 		if(obj.tag == "water_interaction")
 		{
-			
-			Instantiate (puzzlestartSound);
-			boiler_puzzle.boiler_water_time =30.00f;
-
+            GameObject.Find("boilerPuzzleController").GetComponent<boilerPuzzleController>().blueHit();
 		}
 
         if(obj.name != "Mage" && obj.tag != "Planet")
