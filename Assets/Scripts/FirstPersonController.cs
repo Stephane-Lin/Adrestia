@@ -124,7 +124,10 @@ public class FirstPersonController : MonoBehaviour {
 	}
 	
 	void Update() {
-		
+
+
+		 
+
         // Make sure movement mechanics are unlocked
 		if (((Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.LeftArrow) || Input.GetKey(KeyCode.RightArrow)) && put_GO.getCanLeftRight())
 			|| ((Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow)) && put_GO.getCanBackward()) || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow)) 
@@ -366,29 +369,38 @@ public class FirstPersonController : MonoBehaviour {
             transform.rotation = thunder_rotation;
 		}
 
+		//collide with first orb and make it a spawn point
+		if (col.gameObject.tag == "orb1" ) {
+
+			thunder_respawn = new Vector3(13.03f, 338.39f, 218.04f);
+			thunder_rotation= new Quaternion (-0.18f, 0.696f, 0.216f, -0.659f);
+			Destroy(GameObject.FindGameObjectWithTag("orb1"));
+			Destroy (GameObject.Find("Holy Blast1"));
+		}
+
+
+		//collide with second orb and make it a spawn point
+		if (col.gameObject.tag == "orb2" ) {
+
+			thunder_respawn = new Vector3(-15.02f,179.58f,394.52f);
+			thunder_rotation.Set (0.3698f, 0.5894f, 0.3955f, 0.599f);
+			Destroy(GameObject.FindGameObjectWithTag("orb2"));
+			Destroy (GameObject.Find("Holy Blast2"));
+			Destroy(GameObject.Find("blocker_4"));
+		}
+
+		//collide with third orb and make it a spawn point
 		if (col.gameObject.tag == "orb" ) {
 
-			thunder_respawn = new Vector3(transform.position.x,transform.position.y, transform.position.z);
+			thunder_respawn = new Vector3(127.05f, 181.29f, 368.99f);
+			thunder_rotation.Set(-0.281f, 0.533f,0.4579f, -0.6526f);
 			Destroy(GameObject.Find("orb"));
 			Destroy (GameObject.Find("Holy Blast"));
 			Instantiate (lightningSound);
 			Destroy(GameObject.Find("LightningWallExit"));
 		}
 
-		if (col.gameObject.tag == "orb2" ) {
-
-			thunder_respawn = new Vector3(transform.position.x,transform.position.y, transform.position.z);
-			Destroy(GameObject.FindGameObjectWithTag("orb2"));
-			Destroy (GameObject.Find("Holy Blast2"));
-			Destroy(GameObject.Find("blocker_4"));
-		}
-
-		if (col.gameObject.tag == "orb1" ) {
-
-			thunder_respawn = new Vector3(transform.position.x,transform.position.y, transform.position.z);
-			Destroy(GameObject.FindGameObjectWithTag("orb1"));
-			Destroy (GameObject.Find("Holy Blast1"));
-		}
+		
 	}
 
 	public void playDeathSound() {
