@@ -7,6 +7,9 @@ public class boilerPuzzleController : MonoBehaviour
     public GameObject boilerRed;
     public GameObject boilerBlue;
 
+    public AudioSource timerSound;
+    AudioSource myTimerSound;
+
     public AudioSource puzzleCompleteSound;
     AudioSource myPuzzleCompleteSound;
 
@@ -34,6 +37,8 @@ public class boilerPuzzleController : MonoBehaviour
 
 	void Start () 
     {
+        myTimerSound = timerSound.GetComponent<AudioSource>();
+
         complete = false;
         incorrectSound = incorrect.GetComponent<AudioSource>();
 
@@ -92,6 +97,7 @@ public class boilerPuzzleController : MonoBehaviour
             redActive = true;
             if(blueAlreadyHit == false)
             {
+                Instantiate(myTimerSound);
                 timer = Time.time + 30f;
                 alreadyReset = false;
             }
@@ -108,6 +114,7 @@ public class boilerPuzzleController : MonoBehaviour
             blueActive = true;
             if(redAlreadyHit == false)
             {
+                Instantiate(myTimerSound);
                 timer = Time.time + 30f;
                 alreadyReset = false;
             }
